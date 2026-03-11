@@ -17,7 +17,7 @@ jobs:
       contents: read
       security-events: write  # required for SARIF upload to GitHub Security tab
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Run Trivy
         id: trivy
@@ -50,7 +50,7 @@ jobs:
       contents: read
       security-events: write  # required for SARIF upload to GitHub Security tab
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Run Checkov
         uses: bridgecrewio/checkov-action@v12
