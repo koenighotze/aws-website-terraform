@@ -46,6 +46,9 @@ jobs:
   checkov:
     name: Checkov
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write  # required for SARIF upload to GitHub Security tab
     steps:
       - uses: actions/checkout@v4
 
