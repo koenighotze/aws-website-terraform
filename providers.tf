@@ -15,5 +15,5 @@ terraform {
 
 provider "aws" {
   # profile = "koenighotze"
-  # Route 53 is a global service — no region needed
+  region = "eu-central-1"
 }
