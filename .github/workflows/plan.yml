@@ -10,6 +10,14 @@ permissions:
   contents: read
   id-token: write  # required for Workload Identity Federation
 
+concurrency:
+  group: tf
+  cancel-in-progress: true
+
+env:
+  TF_IN_AUTOMATION: true
+  TF_INPUT: false
+
 jobs:
   plan:
     name: Plan
@@ -25,7 +33,7 @@ jobs:
           service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
       - uses: hashicorp/setup-terraform@v3
-      
+
       - name: Terraform Init
         run: terraform init -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}"
 
