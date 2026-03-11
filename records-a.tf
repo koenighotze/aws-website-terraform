@@ -26,6 +26,7 @@ import {
 }
 
 resource "aws_route53_record" "www_a" {
+  #checkov:skip=CKV2_AWS_23:A records intentionally point to GitHub Pages static IPs, not AWS resources
   zone_id = aws_route53_zone.blog.zone_id
   name    = "www.${var.domain_name}"
   type    = "A"
